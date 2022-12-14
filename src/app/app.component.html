@@ -1,2 +1,52 @@
+<div class="container">
+  <div class="input-container">
+    <mat-select-autocomplete
+      class="input-container__select"
+      [placeholder]="'Countries'"
+      [options]="countries"
+      [display]="'name'"
+      [value]="'code'"
+      [multiple]="false"
+      [fieldFormControl]="country"
+      (selectionChange)="onCountryChange($event)"
+    >
+    </mat-select-autocomplete>
 
+    <mat-select-autocomplete
+      class="input-container__select"
+      [placeholder]="'First City'"
+      [options]="cities"
+      [display]="'city'"
+      [value]="'city'"
+      [multiple]="false"
+      [fieldFormControl]="firstCity"
+    >
+    </mat-select-autocomplete>
+
+    <mat-select-autocomplete
+      class="input-container__select"
+      [placeholder]="'Second City'"
+      [options]="cities"
+      [display]="'city'"
+      [value]="'city'"
+      [multiple]="false"
+      [fieldFormControl]="secondCity"
+    >
+    </mat-select-autocomplete>
+
+<!--    <button mat-raised-button-->
+<!--            color="primary"-->
+<!--            [disabled]="firstCity.invalid || secondCity.invalid"-->
+<!--            (click)="onSubmit()">Submit-->
+<!--    </button>-->
+  </div>
+  <div class="tables-container">
+    <div class="tables-container__table">
+      <app-measurement-table [countryCode]="country.value" [cityName]="firstCity.value"></app-measurement-table>
+    </div>
+    <div class="tables-container__table">
+      <app-measurement-table [countryCode]="country.value" [cityName]="secondCity.value"></app-measurement-table>
+    </div>
+  </div>
+</div>
 
